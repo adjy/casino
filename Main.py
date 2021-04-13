@@ -21,15 +21,15 @@ print("3-Vous ne pouvez pas miser sur des nombres décimaux")
 
 
 demarrage_du_jeu = "ok"
-# On récupère les argent de la partie
-argent = recup_argent()
 
-# On récupère un nom d'utilisateur
+argent = recup_argent()
+argent_de_depart
+
 utilisateur = recup_nom_utilisateur()
 
-# Si l'utilisateur n'a pas encore de score, on l'ajoute
+
 if utilisateur not in argent.keys():
-    argent[utilisateur] = 1000 # 0 point pour commencer
+    argent[utilisateur] = argent_de_depart 
 
 print("Vous debutez avec: ${0} ".format(argent[utilisateur]))
 argent2=argent[utilisateur]
@@ -56,7 +56,7 @@ while demarrage_du_jeu == "ok":
     if numero_choisi==numero_hasard:
         print("Felicitations vous etes un gagnant")
         gain=mise*3
-        argent2= argent2 + gain
+        argent2= (argent2 -mise) + gain
         print("Vous avez gagné:",gain,"$")
     
     elif numero_choisi%2==numero_hasard%2:
@@ -64,20 +64,21 @@ while demarrage_du_jeu == "ok":
         print("vous avez gagné la moitiée de la somme misée")
         print("")
         gain=math.ceil(mise*0.5)
-        argent2= argent2 + gain
+        argent2= (argent2 -mise) + gain
         print("")
         print("Vous avez gagné:",gain,"$")
     else:
         print("Vous avez perdu")
         argent2=argent2-mise
-					
+    print(argent2)			
 	
     if argent2<=0:
         print("Vous êtes ruiné! c'est la fin du partie")
         demarrage_du_jeu="l"
+       
     fin_partie=str()
     
-    while fin_partie.lower() !="n" and fin_partie.lower() !="non" and fin_partie.lower() !="o" and fin_partie.lower() !="oui":
+    while demarrage_du_jeu!="l" and fin_partie.lower() !="n" and fin_partie.lower() !="non" and fin_partie.lower() !="o" and fin_partie.lower() !="oui":
         fin_partie=input("Souhaitez-vous quitter le casino(o/n)?:")
         print("")
 
@@ -91,15 +92,19 @@ while demarrage_du_jeu == "ok":
 
 
 
+
+
+print("")
+
+if argent2==0:
+    argent2=argent_de_depart
 argent[utilisateur] = argent2 
-
-
-# La partie est finie, on enregistre les argent
 enregistrer_argent(argent)
 
-# On affiche les argent de l'utilisateur
-print("")
-print("Vous finissez la partie avec ${0}.\n".format(argent[utilisateur]))      
+
+
+
+
 
 
 #Sedar_007
