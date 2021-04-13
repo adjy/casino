@@ -9,5 +9,5 @@ min=0
 max=50
 
 #random
-#numero_hasard=random.randrange(min,max)
-numero_hasard=8
+numero_hasard=random.randrange(min,max)
+
