@@ -5,6 +5,9 @@ from fonctions import *
 from donnees import *
 import os
 import pickle
+from sedar_007 import *
+
+sedar_007()
 
 salut="Bienvenue Au CasinoTown"
 salut=salut.center(80, "-")
